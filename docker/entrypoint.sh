@@ -26,8 +26,8 @@ echo ""
 
 if [ ! -f /drupal/app/web/sites/default/settings.local.php ]
 then
-  # 1 - Create a directory for files.
-  sudo mkdir -p /drupal/app/web/sites/default/files
+  # 1 - Create basid files and ensure permissions.
+  mkdir -p /drupal/app/web/sites/default/files
 
   # 2 - Install core and other dependencies.
   composer install
@@ -56,5 +56,6 @@ echo "--------------------------------------"
 echo "--- Virtual Marchine ready to work ---"
 echo "--------------------------------------"
 echo ""
+echo "Access your Drupal site at http://$(hostname -i)"
 
 exec "$@"
