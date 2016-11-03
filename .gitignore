@@ -1,0 +1,4 @@
+.mysql/
+.idea
+temp
+src/web/sites/default/settings.local.php
