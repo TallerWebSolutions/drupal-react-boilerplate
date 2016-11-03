@@ -38,7 +38,7 @@ then
 
   # 4 - Install standard profile.
   cd /drupal/app/web
-  drush si standard --site-name="Drupal 8" --account-name="admin" --account-pass="password" -y
+  ../vendor/bin/drush si standard --site-name="Drupal 8" --account-name="admin" --account-pass="password" -y
 
   cd /drupal/app
 fi

@@ -50,7 +50,7 @@ WORKDIR /${USER_NAME}/app
 # Install prestissimo for faster composer installs.
 # -------------------------------------------------
 
-RUN cp -R /root/.composer /${USER_NAME}/.composer \
+RUN sudo cp -R /root/.composer /${USER_NAME}/.composer \
     && sudo chown ${USER_NAME}:${GROUP_NAME} -R /${USER_NAME}/.composer
 
 
