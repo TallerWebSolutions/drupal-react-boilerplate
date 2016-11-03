@@ -8,7 +8,6 @@ services:
       - ALL
     links:
       - database:database-host
-      - selenium
     volumes:
         # 1 - Persist database outside container.
         # 2 - Use ssh config from host.
@@ -33,13 +32,6 @@ services:
     networks:
       faq_network:
         ipv4_address: 188.36.47.21
-
-  selenium:
-    image: selenium/standalone-chrome
-    container_name: drupal-boilerplate-selenium
-    networks:
-      faq_network:
-        ipv4_address: 188.36.47.20
 
 networks:
   faq_network:
