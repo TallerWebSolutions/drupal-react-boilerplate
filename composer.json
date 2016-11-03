@@ -68,26 +68,7 @@
         },
 
         "patches": {
-            "drupal/core": {
-                "RPC endpoints for user authentication": "https://www.drupal.org/files/issues/2403307-220.patch"
-            },
-            "drupal/scheduler": {
-                "Disable access checks on publish/unpublish": "https://www.drupal.org/files/issues/disable_access_checks-2700209-6.patch",
-                "Support for Multilingual": "https://www.drupal.org/files/issues/support-for-multilingual-2776665-9.patch"
-            },
-            "drupal/inline_entity_form": {
-                "Allow IEF save revisions nodes bundles": "https://www.drupal.org/files/issues/Allow-IEF-save-revisions-nodes-bundles-2791139-2.patch"
-            },
-            "drupal/google_analytics": {
-                "Broken Admin form on load": "https://www.drupal.org/files/issues/broken_admin_form_on_load-2664518-7.patch",
-                "Allow special chars in snippet": "https://www.drupal.org/files/issues/google_analytics-2821815-1.patch"
-            },
-            "drupal/search_api": {
-              "Remove access granting override": "https://www.drupal.org/files/issues/search_api-8.x-1.x-remove_node_access__all-1617794-29.patch"
-            },
-            "drupal/colorbutton": {
-              "Implement support for Color Dialog": "https://www.drupal.org/files/issues/colorbutton-implement_color_dialog-2785311-7.patch"
-            }
+          
         }
     }
 }

@@ -33,6 +33,13 @@ COPY ./.bashrc /${APP_NAME}/.bashrc
 RUN chown ${USER_NAME}:${GROUP_NAME} /${APP_NAME}/.bashrc
 
 
+# Make site available.
+# --------------------
+
+RUN rm -Rf /var/www/drupal/web \
+    && ln -s /${USER_NAME}/app/web /var/www/drupal/web
+
+
 # Setup user and initialization directory.
 # ----------------------------------------
 
