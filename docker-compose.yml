@@ -17,9 +17,6 @@ services:
       - $HOME/.ssh:/taller/.ssh
       - $HOME/.gitconfig:/taller/.gitconfig
       - $PWD:/drupal/app
-    networks:
-      faq_network:
-        ipv4_address: 188.36.47.30
 
   database:
     image: mysql:5.6
@@ -29,15 +26,3 @@ services:
       - MYSQL_DATABASE=drupal
       - MYSQL_PASSWORD=password
       - MYSQL_ROOT_PASSWORD=password
-    networks:
-      faq_network:
-        ipv4_address: 188.36.47.21
-
-networks:
-  faq_network:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-      - subnet: 188.36.47.0/24
-        gateway: 188.36.47.1
