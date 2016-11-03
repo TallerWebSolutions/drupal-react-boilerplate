@@ -50,7 +50,8 @@ WORKDIR /${USER_NAME}/app
 # Install prestissimo for faster composer installs.
 # -------------------------------------------------
 
-RUN composer global require "hirak/prestissimo:^0.3"
+RUN cp -R /root/.composer /${USER_NAME}/.composer \
+    && sudo chown ${USER_NAME}:${GROUP_NAME} -R /${USER_NAME}/.composer
 
 
 # Configure entrypoint.
