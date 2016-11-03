@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+  app:
+    build: ./docker
+    hostname: app
+    cap_add:
+      - ALL
+    links:
+      - database:database-host
+      - selenium
+    volumes:
+        # 1 - Persist database outside container.
+        # 2 - Use ssh config from host.
+        # 3 - Use git config from host.
+        # 4 - Place app files.
+      - $HOME/.databases/drupal-boilerplate:/var/lib/mysql
+      - $HOME/.ssh:/taller/.ssh
+      - $HOME/.gitconfig:/taller/.gitconfig
+      - $PWD:/drupal/app
+    networks:
+      faq_network:
+        ipv4_address: 188.36.47.30
+
+  database:
+    image: mysql:5.6
+    container_name: 'drupal-boilerplate-database'
+    environment:
+      - MYSQL_USER=drupal
+      - MYSQL_DATABASE=drupal
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+    networks:
+      faq_network:
+        ipv4_address: 188.36.47.21
+
+  selenium:
+    image: selenium/standalone-chrome
+    container_name: drupal-boilerplate-selenium
+    networks:
+      faq_network:
+        ipv4_address: 188.36.47.20
+
+networks:
+  faq_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 188.36.47.0/24
+        gateway: 188.36.47.1
