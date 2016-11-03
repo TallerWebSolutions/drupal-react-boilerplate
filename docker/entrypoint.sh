@@ -24,8 +24,6 @@ echo ""
 
 if [ ! -f /drupal/app/web/sites/default/settings.local.php ]
 then
-  WORKDIR=$PWD
-
   # 1 - Copy configuration files.
   sudo cp /drupal/app/web/sites/example.settings.local.php.sample /drupal/app/web/sites/default/settings.local.php
   sudo chmod -R 777 /drupal/app/web/sites/default/settings.local.php
@@ -34,13 +32,13 @@ then
   sudo mkdir -p /drupal/app/web/sites/default/files
 
   # 3 - Install core and other dependencies.
-  cd /drupal/app && composer install
+  composer install
 
   # 4 - Install standard profile.
   cd /drupal/app/web
   drush si standard --site-name="Drupal 8" --account-name="admin" --account-pass="password" -y
 
-  cd $WORKDIR
+  cd /drupal/app
 fi
 
 
