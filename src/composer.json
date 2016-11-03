@@ -1,0 +1,93 @@
+{
+    "name": "drupal-composer/drupal-project",
+    "description": "Project template for Drupal 8 projects with composer",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.drupal-composer.org"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.0.20",
+        "drupal-composer/drupal-scaffold": "^2.0.1",
+        "cweagans/composer-patches": "~1.0",
+        "drupal/core": "~8.0",
+        "drush/drush": "~8.0",
+        "drupal/console": "~1.0"
+    },
+    "require-dev": {
+       "behat/mink": "~1.7",
+       "behat/mink-goutte-driver": "~1.2",
+       "jcalderonzumba/gastonjs": "~1.0.2",
+       "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+       "mikey179/vfsStream": "~1.2",
+       "phpunit/phpunit": "~4.8",
+       "symfony/css-selector": "~2.8"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    },
+    "extra": {
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+
+        "patches": {
+            "drupal/core": {
+                "RPC endpoints for user authentication": "https://www.drupal.org/files/issues/2403307-220.patch"
+            },
+            "drupal/scheduler": {
+                "Disable access checks on publish/unpublish": "https://www.drupal.org/files/issues/disable_access_checks-2700209-6.patch",
+                "Support for Multilingual": "https://www.drupal.org/files/issues/support-for-multilingual-2776665-9.patch"
+            },
+            "drupal/inline_entity_form": {
+                "Allow IEF save revisions nodes bundles": "https://www.drupal.org/files/issues/Allow-IEF-save-revisions-nodes-bundles-2791139-2.patch"
+            },
+            "drupal/google_analytics": {
+                "Broken Admin form on load": "https://www.drupal.org/files/issues/broken_admin_form_on_load-2664518-7.patch",
+                "Allow special chars in snippet": "https://www.drupal.org/files/issues/google_analytics-2821815-1.patch"
+            },
+            "drupal/search_api": {
+              "Remove access granting override": "https://www.drupal.org/files/issues/search_api-8.x-1.x-remove_node_access__all-1617794-29.patch"
+            },
+            "drupal/colorbutton": {
+              "Implement support for Color Dialog": "https://www.drupal.org/files/issues/colorbutton-implement_color_dialog-2785311-7.patch"
+            }
+        }
+    }
+}
