@@ -26,15 +26,15 @@ echo ""
 
 if [ ! -f /drupal/app/web/sites/default/settings.local.php ]
 then
-  # 1 - Install core and other dependencies.
+  # 1 - Create a directory for files.
+  sudo mkdir -p /drupal/app/web/sites/default/files
+
+  # 2 - Install core and other dependencies.
   composer install
 
-  # 2 - Copy configuration files.
+  # 3 - Copy configuration files.
   sudo cp /drupal/app/web/sites/example.settings.local.php.sample /drupal/app/web/sites/default/settings.local.php
   sudo chmod -R 777 /drupal/app/web/sites/default/settings.local.php
-
-  # 3 - Create a directory for files.
-  sudo mkdir -p /drupal/app/web/sites/default/files
 
   # 4 - Install standard profile.
   cd /drupal/app/web
