@@ -1,7 +1,19 @@
 version: '2'
 
 services:
+  # This container is never builded - it's used only
+  # for reusing configuration,
+  meta:
+    image: busybox # Necessary to make this container valid.
+    environment:
+      - MYSQL_USER=drupal
+      - MYSQL_DATABASE=drupal
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+
   app:
+    extends: meta
+    image: drupal-boilerplate # Only needed to override "meta" image.
     build: ./docker
     hostname: app
     cap_add:
@@ -19,10 +31,6 @@ services:
       - $PWD:/drupal/app
 
   database:
+    extends: meta
     image: mysql:5.6
     container_name: 'drupal-boilerplate-database'
-    environment:
-      - MYSQL_USER=drupal
-      - MYSQL_DATABASE=drupal
-      - MYSQL_PASSWORD=password
-      - MYSQL_ROOT_PASSWORD=password

@@ -104,4 +104,21 @@ $settings['rebuild_access'] = TRUE;
  * user pulling in the changes won't have permissions to modify files in the
  * directory.
  */
+
 $settings['skip_permissions_hardening'] = TRUE;
+
+/**
+ * Database.
+ */
+$databases['default']['default'] = array (
+  'database' => '{MYSQL_DATABASE}',
+  'username' => '{MYSQL_USER}',
+  'password' => '{MYSQL_PASSWORD}',
+  'prefix' => '',
+  'host' => 'database-host',
+  'port' => '',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+
+$settings['install_profile'] = 'standard';

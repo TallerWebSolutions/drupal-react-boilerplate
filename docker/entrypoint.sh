@@ -33,10 +33,15 @@ then
   composer install
 
   # 3 - Copy configuration files.
-  sudo cp /drupal/app/web/sites/example.settings.local.php.sample /drupal/app/web/sites/default/settings.local.php
+  sudo cp /drupal/app/web/sites/example.settings.local.php /drupal/app/web/sites/default/settings.local.php
   sudo chmod -R 777 /drupal/app/web/sites/default/settings.local.php
 
-  # 4 - Install standard profile.
+  # 4 - Configure database connection based on docker-compose env variables.
+  sed -i "s/{MYSQL_DATABASE}/${MYSQL_DATABASE}/g" /drupal/app/web/sites/default/settings.local.php
+  sed -i "s/{MYSQL_PASSWORD}/${MYSQL_PASSWORD}/g" /drupal/app/web/sites/default/settings.local.php
+  sed -i "s/{MYSQL_USER}/${MYSQL_USER}/g" /drupal/app/web/sites/default/settings.local.php
+
+  # 5 - Install standard profile.
   cd /drupal/app/web
   ../vendor/bin/drush si standard --site-name="Drupal 8" --account-name="admin" --account-pass="password" -y
 
@@ -57,5 +62,6 @@ echo "--- Virtual Marchine ready to work ---"
 echo "--------------------------------------"
 echo ""
 echo "Access your Drupal site at http://$(hostname -i)"
+echo ""
 
 exec "$@"
