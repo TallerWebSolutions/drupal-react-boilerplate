@@ -26,8 +26,8 @@ services:
         # 3 - Use git config from host.
         # 4 - Place app files.
       - $HOME/.databases/drupal-boilerplate:/var/lib/mysql
-      - $HOME/.ssh:/taller/.ssh
-      - $HOME/.gitconfig:/taller/.gitconfig
+      - $HOME/.ssh:/drupal/.ssh
+      - $HOME/.gitconfig:/drupal/.gitconfig
       - $PWD:/drupal/app
 
   database:
