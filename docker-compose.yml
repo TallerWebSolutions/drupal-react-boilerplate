@@ -23,11 +23,9 @@ services:
     links:
       - database:database-host
     volumes:
-        # 1 - Persist database outside container.
-        # 2 - Use ssh config from host.
-        # 3 - Use git config from host.
-        # 4 - Place app files.
-      - $HOME/.databases/drupal-boilerplate:/var/lib/mysql
+        # 1 - Use ssh config from host.
+        # 2 - Use git config from host.
+        # 3 - Place app files.
       - $HOME/.ssh:/drupal/.ssh
       - $HOME/.gitconfig:/drupal/.gitconfig
       - $PWD:/drupal/app
@@ -37,4 +35,5 @@ services:
     image: mysql:5.6
     container_name: 'drupal-boilerplate-database'
     volumes:
+      # Persist database outside container.
       - $PWD/.mysql/:/var/lib/mysql
