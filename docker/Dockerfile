@@ -1,4 +1,4 @@
-FROM taller/drupal
+FROM taller/drupal-node
 
 # Build-time configuration.
 # -------------------------
