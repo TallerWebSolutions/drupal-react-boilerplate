@@ -4,9 +4,15 @@
   "description": "React single page application theme.",
   "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint"
+    "clean": "rm -Rf dist/",
+    "build": "npm run clean && webpack",
+    "watch": "npm run clean && webpack --watch",
+    "lint": "eslint",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-es3-member-expression-literals": "^6.8.0",
     "babel-plugin-transform-es3-property-literals": "^6.8.0",
@@ -16,6 +22,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "eslint": "^3.9.1",
-    "eslint-config-taller": "^1.0.3"
+    "eslint-config-taller": "^1.0.3",
+    "webpack": "2.1.0-beta.25"
   }
 }
