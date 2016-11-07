@@ -3,6 +3,6 @@ type: theme
 description: React single page application theme.
 core: 8.x
 libraries:
-  - app/main
+  - spa/main
 regions:
   content: Content
