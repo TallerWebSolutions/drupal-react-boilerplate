@@ -63,3 +63,4 @@ fi
 
 # Add locals to PATH.
 PATH="$HOME/app/vendor/bin:$PATH"
+PATH="$HOME/app/web/themes/custom/spa/node_modules/.bin:$PATH"
