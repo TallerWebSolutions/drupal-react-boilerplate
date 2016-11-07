@@ -1,0 +1,6 @@
+{
+  "name": "react-spa-theme",
+  "version": "0.1.0",
+  "description": "React single page application theme.",
+  "main": "dist/index.js"
+}
