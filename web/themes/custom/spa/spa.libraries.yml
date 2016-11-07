@@ -1,0 +1,9 @@
+main:
+  version: 1.x
+  js:
+    dist/index.js: {}
+  css:
+    theme:
+      dist/index.css: {}
+  dependencies:
+    - core/drupalSettings

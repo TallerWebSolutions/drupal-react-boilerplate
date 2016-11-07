@@ -1,0 +1,8 @@
+name: React SPA
+type: theme
+description: React single page application theme.
+core: 8.x
+libraries:
+  - app/main
+regions:
+  content: Content
