@@ -15,7 +15,7 @@ test:
 	--verbose --color Drupal
 
 mysql:
-	docker exec -it drupal-boilerplate-database mysql -h localhost -u root -ppassword drupal
+	docker exec -it drupal-react-boilerplate-database mysql -h localhost -u root -ppassword drupal
 
 stop:
 	docker-compose stop
