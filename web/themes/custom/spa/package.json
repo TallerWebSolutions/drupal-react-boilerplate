@@ -2,5 +2,12 @@
   "name": "react-spa-theme",
   "version": "0.1.0",
   "description": "React single page application theme.",
-  "main": "dist/index.js"
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint"
+  },
+  "devDependencies": {
+    "eslint": "^3.9.1",
+    "eslint-config-taller": "^1.0.3"
+  }
 }

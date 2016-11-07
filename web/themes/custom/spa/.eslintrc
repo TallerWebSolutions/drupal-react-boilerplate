@@ -1,0 +1,6 @@
+{
+  extends: ["taller/react"],
+  globals: {
+    drupalSettings: false
+  }
+}
