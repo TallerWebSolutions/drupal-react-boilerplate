@@ -22,6 +22,7 @@ services:
       - ALL
     links:
       - database:database-host
+      - selenium:selenium-host
     volumes:
         # 1 - Use ssh config from host.
         # 2 - Use git config from host.
@@ -37,3 +38,7 @@ services:
     volumes:
       # Persist database outside container.
       - $PWD/.mysql/:/var/lib/mysql
+
+  selenium:
+    image: selenium/standalone-chrome
+    container_name: drupal-react-boilerplate-selenium
