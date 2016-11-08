@@ -1,0 +1,15 @@
+{
+  "automock": true,
+  "testRegex": "/__tests__/.*\\.(js|jsx)$",
+  "unmockedModulePathPatterns": [
+    "react",
+    "react-dom",
+    "react-addons-test-utils",
+    "enzyme",
+    "babel-runtime"
+  ],
+  "moduleNameMapper": {
+    "^app/(.*)": "<rootDir>/src/$1",
+    "^.+\\.(css)$": "identity-obj-proxy"
+  }
+}

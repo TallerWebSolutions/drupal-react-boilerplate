@@ -7,8 +7,11 @@
     "clean": "rm -Rf dist/",
     "build": "npm run clean && webpack",
     "watch": "npm run clean && webpack --watch",
-    "lint": "eslint",
-    "postinstall": "npm run build"
+    "lint": "eslint .",
+    "test": "npm run test:unit",
+    "test:unit": "jest --config jest.config.json --verbose --no-cache",
+    "test:unit:watch": "jest --config jest.config.json --watch --verbose --no-cache",
+    "install": "npm run build"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.2",
@@ -23,14 +26,20 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "^0.25.0",
+    "enzyme": "^2.5.1",
     "eslint": "^3.9.1",
     "eslint-config-taller": "^1.0.3",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^16.0.2",
     "postcss-loader": "^1.1.0",
     "postcss-nested": "^1.0.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react-addons-test-utils": "^15.3.2",
     "style-loader": "^0.13.1",
     "webpack": "2.1.0-beta.25"
+  },
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
   }
 }
