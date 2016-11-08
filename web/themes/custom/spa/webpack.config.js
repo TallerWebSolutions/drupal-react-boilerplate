@@ -31,10 +31,13 @@ const config = {
       { test: /\.js$/, use: 'babel', exclude: /node_modules/, include: __dirname },
       {
         test: /\.css?$/,
-        use: [
-          { loader: 'css-loader', options: { modules: true, importLoaders: 1, localIdentName: '[path][name]__[local]', sourceMap: env === 'development' } },
-          { loader: 'postcss-loader', options: { plugins: [require('postcss-nested'), require('autoprefixer')({ browsers: ['> 1%', 'last 4 versions', 'Firefox ESR'] })] } }
-        ]
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: ['style-loader'],
+          loader: [
+            { loader: 'css-loader', query: { modules: true, importLoaders: 1, localIdentName: '[path][name]__[local]', sourceMap: env === 'development' } },
+            { loader: 'postcss-loader' }
+          ]
+        })
       },
       { test: /\.gif(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=image/gif' },
       { test: /\.png(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=image/png' },
