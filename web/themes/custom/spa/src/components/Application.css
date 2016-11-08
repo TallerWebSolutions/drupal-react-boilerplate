@@ -1,0 +1,8 @@
+.hello {
+  font-size: 2em;
+  font-family: monospace;
+
+  .bar: {
+    color: blue;
+  }
+}
