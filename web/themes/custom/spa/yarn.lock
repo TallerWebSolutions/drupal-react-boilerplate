@@ -2570,6 +2570,13 @@ https-proxy-agent@1:
     debug "2"
     extend "3"
 
+husky:
+  version "0.11.9"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-0.11.9.tgz#28cd1dc16bffdca1d4d93592814e5f3c327b38ee"
+  dependencies:
+    is-ci "^1.0.9"
+    normalize-path "^1.0.0"
+
 iconv-lite@^0.4.13, iconv-lite@^0.4.5, iconv-lite@~0.4.13, iconv-lite@0.4.13:
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
@@ -3767,6 +3774,10 @@ normalize-package-data@^2.3.2:
     is-builtin-module "^1.0.0"
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
+
+normalize-path@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-1.0.0.tgz#32d0e472f91ff345701c15a8311018d3b0a90379"
 
 normalize-path@^2.0.1:
   version "2.0.1"

@@ -13,7 +13,9 @@
     "test:unit:watch": "jest --config jest.config.json --watch --verbose --no-cache",
     "test:e2e": "NODE_ENV=test nightwatch",
     "test:e2e:debug": "NODE_ENV=test REAL_BROWSER=true nightwatch",
-    "install": "npm run build"
+    "install": "npm run build",
+    "prepush": "npm run lint && npm test",
+    "storybook": "start-storybook -p 6006"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.2",
@@ -33,6 +35,7 @@
     "eslint": "^3.9.1",
     "eslint-config-taller": "^1.0.3",
     "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "husky": "^0.11.9",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^16.0.2",
     "nightwatch": "^0.9.8",
