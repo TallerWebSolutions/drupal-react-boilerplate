@@ -24,4 +24,3 @@ web/libraries
 web/themes/contrib
 web/profiles/contrib
 composer.lock
-node_modules
