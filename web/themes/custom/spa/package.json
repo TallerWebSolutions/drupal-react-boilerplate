@@ -11,6 +11,8 @@
     "test": "npm run test:unit",
     "test:unit": "jest --config jest.config.json --verbose --no-cache",
     "test:unit:watch": "jest --config jest.config.json --watch --verbose --no-cache",
+    "test:e2e": "NODE_ENV=test nightwatch",
+    "test:e2e:debug": "NODE_ENV=test REAL_BROWSER=true nightwatch",
     "install": "npm run build"
   },
   "devDependencies": {
