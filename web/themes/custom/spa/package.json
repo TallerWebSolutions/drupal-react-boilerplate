@@ -34,7 +34,7 @@
     "enzyme": "^2.5.1",
     "eslint": "^3.9.1",
     "eslint-config-taller": "^1.0.3",
-    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "extract-text-webpack-plugin": "^1.0.1",
     "husky": "^0.11.9",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^16.0.2",
@@ -42,10 +42,12 @@
     "postcss-loader": "^1.1.0",
     "postcss-nested": "^1.0.0",
     "react-addons-test-utils": "^15.3.2",
+    "react-storybook-addon-backgrounds": "^0.0.7",
     "selenium-server-standalone-jar": "^3.0.1",
     "shelljs": "^0.7.5",
+    "storybook-addon-smart-knobs": "^0.2.0",
     "style-loader": "^0.13.1",
-    "webpack": "2.1.0-beta.25"
+    "webpack": "^1.13.3"
   },
   "dependencies": {
     "react": "^15.3.2",

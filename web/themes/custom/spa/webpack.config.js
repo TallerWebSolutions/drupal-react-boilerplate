@@ -25,33 +25,28 @@ const config = {
   },
 
   module: {
-    rules: [
-      { test: /\.html$/, use: 'html' },
-      { test: /\.json$/, use: 'json' },
-      { test: /\.js$/, use: 'babel', exclude: /node_modules/, include: __dirname },
-      {
-        test: /\.css?$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: ['style-loader'],
-          loader: [
-            { loader: 'css-loader', query: { modules: true, importLoaders: 1, localIdentName: '[path][name]__[local]', sourceMap: env === 'development' } },
-            { loader: 'postcss-loader' }
-          ]
-        })
-      },
-      { test: /\.gif(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=image/gif' },
-      { test: /\.png(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=image/png' },
-      { test: /\.jpg(\?.*)?$/, use: 'url-loader?limit=10000&minetype=image/jpg' },
-      { test: /\.svg(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml' },
-      { test: /\.woff(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
-      { test: /\.woff2(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=application/font-woff' },
-      { test: /\.ttf(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream' },
-      { test: /\.eot(\?.*)?$/, use: 'url-loader?limit=10000&mimetype=application/vnd.ms-fontobject' },
+    loaders: [
+      { test: /\.html$/, loader: 'html' },
+      { test: /\.json$/, loader: 'json' },
+      { test: /\.js$/, loader: 'babel', exclude: /node_modules/, include: __dirname },
+      { test: /\.css?$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader') },
+      { test: /\.gif(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=image/gif' },
+      { test: /\.png(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=image/png' },
+      { test: /\.jpg(\?.*)?$/, loader: 'url-loader?limit=10000&minetype=image/jpg' },
+      { test: /\.svg(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' },
+      { test: /\.woff(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
+      { test: /\.woff2(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
+      { test: /\.ttf(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=application/octet-stream' },
+      { test: /\.eot(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=application/vnd.ms-fontobject' },
     ],
   },
 
   plugins: [
-    new ExtractTextPlugin({ filename: '[name].css', allChunks: true, ignoreOrder: true }),
+    new ExtractTextPlugin('[name].css', {
+      allChunks: true,
+      ignoreOrder: true,
+      disable: env !== 'production'
+    }),
     new webpack.DefinePlugin({
       __DEV__: env === 'development',
       __PRODUCTION__: env === 'production',
