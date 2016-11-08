@@ -1,0 +1,10 @@
+services:
+  route.path_processor.react:
+    class: Drupal\react\PathProcessor\SPAPathProcessor
+    tags:
+      - { name: path_processor_inbound, priority: 250 }
+
+  theme.negotiator.react:
+    class: Drupal\react\Theme\SPAThemeNegotiator
+    tags:
+      - { name: theme_negotiator, priority: 10 }

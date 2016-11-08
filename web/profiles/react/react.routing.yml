@@ -1,0 +1,17 @@
+react.app.home:
+  path: /app
+  defaults:
+    _controller: Drupal\react\Controller\SPAController::spa
+  options:
+    _theme: spa
+  requirements:
+    _permission: 'access content'
+
+react.app.all:
+  path: /app/{app_url}
+  defaults:
+    _controller: Drupal\react\Controller\SPAController::spa
+  options:
+    _theme: spa
+  requirements:
+    _permission: 'access content'
