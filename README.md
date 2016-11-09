@@ -1,8 +1,8 @@
-# Drupal Boilerplate
+# Drupal React Boilerplate
 
-This project is a kickstart to get a [Composer](https://getcomposer.org/) managed [Drupal 8](https://www.drupal.org/) website development environment up and running in the lowest time possible.
+This project is a kickstart to get a [React](https://facebook.github.io/react/) application served and backed by [Drupal 8](https://www.drupal.org/) in an easy and preconfigured environment with Docker.
 
-> See also: [drupal-react-boilerplate](https://github.com/TallerWebSolutions/drupal-react-boilerplate), an extension of this boilerplate to setup a Drupal backed React app.
+> This is and extension to the [drupal-boilerplate](https://github.com/TallerWebSolutions/drupal-boilerplate).
 
 ## Quick start
 
@@ -10,13 +10,33 @@ This project is a kickstart to get a [Composer](https://getcomposer.org/) manage
  1. Install [Docker Compose](https://docs.docker.com/compose/);
  1. Run `make run`;
  1. Make a coffee. It takes a while the first time you run it.
+ 1. Go to `cd /drupal/app/web/themes/custom/spa`
+ 1. Run `yarn` ([what is Yarn?](https://yarnpkg.com/))
  1. Enjoy!
+
+## Overview
+
+This boilerplate is a starting point for developers looking for replacing the end-user interface of Drupal with a front-end built with React. It sets up all the app's building process using [webpack](https://webpack.github.io/), so getting started is a pece of cake. In fact, if you followed the quick start you already builded the application once.
+
+The Drupal work (building modules, for instance) is done in the same way the [drupal-project](https://github.com/drupal-composer/drupal-project) does. Follow that guide if you have any problems.
+
+The React work is done inside `web/themes/custom/spa`. It has basically the structure of a single page application project, with the addition that it is a Drupal theme too. Have a look at that directory for more information.
+
+## What it does not do?
+
+1. The app is basically a theme.
+1. The theme is intentionally served only on the `app/*` url. This avoid conflicts with other administrative interfaces.
+1. This does no server side rendering.
+1. There is no pre-configured connection between the app and the backend.
 
 #### Docker containers
 
-This project uses Docker Compose to create a container for the application and one for the database. The application container is based on the [taller/drupal](https://hub.docker.com/r/taller/drupal/) image, which includes:
+This project uses Docker Compose to create a container for the application, one for the database, and one for Selenium to run e2e tests. The application container is based on the [taller/drupal-node](https://hub.docker.com/r/taller/drupal-node/) image, which includes:
 
 1. NGINX
 1. php5-fpm
 1. Composer
 1. Drush
+1. Node (7.0)
+1. npm
+1. yarn
