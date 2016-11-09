@@ -18,16 +18,24 @@ This project is a kickstart to get a [React](https://facebook.github.io/react/) 
 
 This boilerplate is a starting point for developers looking for replacing the end-user interface of Drupal with a front-end built with React. It sets up all the app's building process using [webpack](https://webpack.github.io/), so getting started is a pece of cake. In fact, if you followed the quick start you already builded the application once.
 
+### Tell me more
+
 The Drupal work (building modules, for instance) is done in the same way the [drupal-project](https://github.com/drupal-composer/drupal-project) does. Follow that guide if you have any problems.
 
 The React work is done inside `web/themes/custom/spa`. It has basically the structure of a single page application project, with the addition that it is a Drupal theme too. Have a look at that directory for more information.
 
-## What it does not do?
+There is also a profile called "react". This profile's purpose is to setup the theme configuration (serve the theme on specific urls only) and serve initial site-wide configuration.
+
+### What does it *not* do?
 
 1. The app is basically a theme.
 1. The theme is intentionally served only on the `app/*` url. This avoid conflicts with other administrative interfaces.
 1. This does no server side rendering.
 1. There is no pre-configured connection between the app and the backend.
+
+## How should I extend it?
+
+Well, this project is a boilerplate, so don't expect nor worry about keeping it possible to update your code at any time. You should probably just take over, rename the theme if want, and control how the profile does it work too.
 
 #### Docker containers
 
