@@ -26,7 +26,7 @@ The React work is done inside `web/themes/custom/spa`. It has basically the stru
 
 There is also a profile called "react". This profile's purpose is to setup the theme configuration (serve the theme on specific urls only) and serve initial site-wide configuration.
 
-### What does it *not* do?
+### Keep in mind that...
 
 1. The app is basically a theme.
 1. The theme is intentionally served only on the `app/*` url. This avoid conflicts with other administrative interfaces.
