@@ -45,6 +45,10 @@ then
   cd /drupal/app/web
   ../vendor/bin/drush si react --site-name="Drupal 8 - React boilerplate" --account-name="admin" --account-pass="password" -y
 
+  # 6 - Install and build react app.
+  cd /drupal/app/web/themes/custom/spa
+  yarn
+
   cd /drupal/app
 fi
 
