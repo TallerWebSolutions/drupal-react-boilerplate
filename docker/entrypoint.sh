@@ -26,11 +26,11 @@ echo ""
 
 if [ ! -f /drupal/app/web/sites/default/settings.local.php ]
 then
-  # 1 - Create basid files and ensure permissions.
-  mkdir -p /drupal/app/web/sites/default/files
-
-  # 2 - Install core and other dependencies.
+  # 1 - Install core and other dependencies.
   composer install
+
+  # 2 - Create basid files and ensure permissions.
+  mkdir -p /drupal/app/web/sites/default/files
 
   # 3 - Copy configuration files.
   sudo cp /drupal/app/web/sites/example.settings.local.php /drupal/app/web/sites/default/settings.local.php
