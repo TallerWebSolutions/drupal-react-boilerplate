@@ -8,11 +8,7 @@ in:
 	docker exec -it $(shell docker-compose ps | grep _app_run_ | cut -d" " -f 1) /bin/bash
 
 test:
-	docker-compose run --service-ports --rm app \
-	/usr/bin/php ./web/core/scripts/run-tests.sh \
-	--php /usr/bin/php \
-	--sqlite /tmp/test.sqlite \
-	--verbose --color Drupal
+	docker-compose run --service-ports --rm app scripts/test.sh
 
 mysql:
 	docker exec -it drupal-react-boilerplate-database mysql -h localhost -u root -ppassword drupal

@@ -8,7 +8,7 @@
     "build": "npm run clean && webpack",
     "watch": "npm run clean && webpack --watch",
     "lint": "eslint .",
-    "test": "npm run test:unit",
+    "test": "npm run test:unit && npm run test:e2e",
     "test:unit": "jest --config jest.config.json --verbose --no-cache",
     "test:unit:watch": "jest --config jest.config.json --watch --verbose --no-cache",
     "test:e2e": "NODE_ENV=test nightwatch",
