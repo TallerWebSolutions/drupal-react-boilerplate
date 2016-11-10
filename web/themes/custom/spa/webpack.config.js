@@ -29,7 +29,7 @@ const config = {
       { test: /\.html$/, loader: 'html' },
       { test: /\.json$/, loader: 'json' },
       { test: /\.js$/, loader: 'babel', exclude: /node_modules/, include: __dirname },
-      { test: /\.css?$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]!postcss-loader') },
+      { test: /\.css?$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[path][name]__[local]!postcss-loader') },
       { test: /\.gif(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=image/gif' },
       { test: /\.png(\?.*)?$/, loader: 'url-loader?limit=10000&mimetype=image/png' },
       { test: /\.jpg(\?.*)?$/, loader: 'url-loader?limit=10000&minetype=image/jpg' },

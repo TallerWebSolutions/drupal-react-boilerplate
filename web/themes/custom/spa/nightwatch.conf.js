@@ -25,7 +25,7 @@ module.exports = {
   'test_settings': {
     'default': {
       'filter': '**/*.test.js',
-      'launch_url': `http://${hostname}/`,
+      'launch_url': `http://${hostname}/app`,
       'selenium_port': 4444,
       'selenium_host': 'selenium',
 

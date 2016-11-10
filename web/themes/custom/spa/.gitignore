@@ -25,3 +25,4 @@ selenium-debug.log
 # ===============================================
 
 tests/results
+tests_output
