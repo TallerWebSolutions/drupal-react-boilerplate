@@ -33,7 +33,7 @@ then
   mkdir -p /drupal/app/web/sites/default/files
 
   # 3 - Copy configuration files.
-  sudo cp /drupal/app/web/sites/example.settings.local.php /drupal/app/web/sites/default/settings.local.php
+  sudo cp /drupal/app/web/sites/template.settings.local.php /drupal/app/web/sites/default/settings.local.php
   sudo chmod -R 777 /drupal/app/web/sites/default/settings.local.php
 
   # 4 - Configure database connection based on docker-compose env variables.
