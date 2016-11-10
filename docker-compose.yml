@@ -35,11 +35,13 @@ services:
     extends: meta
     image: mysql:5.6
     container_name: 'drupal-react-boilerplate-database'
-    entrypoint: ./entrypoint-mysql.sh
-    volumes:
+    # volumes:
       # Persist database outside container.
-      - $PWD/.mysql/:/var/lib/mysql
-      - ./docker/entrypoint-mysql.sh:/entrypoint-mysql.sh
+      # @TODO: this does not work on docker-machine, and therefore it's commented out so
+      # to avoid misleading behavior on that environment. Everything works just fine
+      # without this mounted volume, but database wont persist after you shutdown the
+      # database container.
+      # - $PWD/.mysql/:/var/lib/mysql
 
   selenium:
     image: selenium/standalone-chrome
