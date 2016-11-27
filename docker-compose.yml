@@ -14,7 +14,11 @@ services:
   app:
     extends: meta
     image: drupal-react-boilerplate # Only needed to override "meta" image.
-    build: ./docker
+    build:
+      context: ./docker/
+      args:
+        USER_ID: "$USER_ID"
+        GROUP_ID: "$GROUP_ID"
     hostname: app
     ports:
       - "80:80"
